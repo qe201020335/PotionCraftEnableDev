@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>EnableDev</AssemblyName>
+    <Description>Enable the game's developper mode and cheatcodes</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>EnableDev</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.8" IncludeAssets="compile" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="PotionCraft.AchievementsSystem">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.AchievementsSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.AchievementsSystem.Steam">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.AchievementsSystem.Steam.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.ConverterFrom050To051">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.ConverterFrom050To051.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.ConverterFrom051To052">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.ConverterFrom051To052.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.ConverterFrom052To100">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.ConverterFrom052To100.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.ConverterFrom100To101">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.ConverterFrom100To101.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.ConverterFrom101To102">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.ConverterFrom101To102.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.Core">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.DataBaseSystem">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.DataBaseSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.ErrorCatcher">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.ErrorCatcher.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.GamepadNavigation">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.GamepadNavigation.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.InputSystem">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.ManagerSystem">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.ManagerSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.SceneLoader">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.SceneLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.Scripts">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.Scripts.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.Settings">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="PotionCraft.SoundSystem">
+      <HintPath>T:\SteamLibrary\steamapps\common\Potion Craft\Potion Craft_Data\Managed\PotionCraft.SoundSystem.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
