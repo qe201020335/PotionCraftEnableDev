@@ -41,11 +41,13 @@ public class Plugin : BaseUnityPlugin
         Log.LogInfo("Modifying game build settings!");
         if (EnableDevModeOnStart.Value)
         {
+            Log.LogDebug("Enable dev mode on start");
             Settings<ApplicationManagerSettings>.Asset.developerModeOnStartInBuild = true;
         }
 
         if (EnableCheatCodes.Value)
         {
+            Log.LogDebug("Enable cheat codes");
             Settings<DebugManagerSettings>.Asset.cheatCodesEnabled.Clear();
             foreach (var value in Enum.GetValues(typeof(TargetPlatform)).Cast<TargetPlatform>())
             {
@@ -61,7 +63,7 @@ public static class LoadingQueuePatch
     [HarmonyPrefix]
     public static void Patch(string name, Action action)
     {
-        Plugin.Log.LogDebug($"{name}");
+        // Plugin.Log.LogDebug($"{name}");
         if (name == "InitializeDeveloperMode")
         {
             Plugin.ModifyBuildConfig();
