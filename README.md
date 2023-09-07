@@ -3,6 +3,11 @@ A mod that enables the game's developer mode and cheat codes.
 
 **By default it will enable the cheat codes but not the developer mode.**
 
+## How to Install?
+1. Install BepInEx if you haven't already, using an installer or manually.
+2. Download the mod. 
+3. Put the DLL file from the zip file into the `BepInEx/plugins` folder you can find in your game directory.
+
 ## How to Enable Dev Mode?
 There are two ways:
   * (Recommended!) After the game loads, enter the cheat code [`DevModeOn`](#known-cheatcodes)<br/>
