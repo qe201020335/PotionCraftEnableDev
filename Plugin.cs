@@ -11,7 +11,7 @@ using PotionCraft.Settings;
 
 namespace EnableDev;
 
-[BepInPlugin(HarmonyID, "EnableDev", "1.0.0")]
+[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class Plugin : BaseUnityPlugin
 {
     public static ManualLogSource Log;
