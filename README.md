@@ -1,8 +1,6 @@
 # Potion Craft EnableDev <img src="https://i.imgur.com/qji3qtE.png" align="right">
 A mod that enables the game's developer mode and cheat codes.
 
-**By default it will enable the cheat codes but not the developer mode.**
-
 ## How to Install?
 1. Install BepInEx if you haven't already, using an installer or manually.
 2. Download the mod. 
@@ -14,17 +12,15 @@ There are two ways:
 or
   * Edit the config file and change `EnableDevModeOnStart` to `true`. This will make the developer mode always active. 
 
-When the dev mode is enabled, you will see a button on the top-left corner. Click on that will show the entire dev menu. 
+When the dev mode is enabled, you will see a button at the top-left corner. Click on that will show the entire dev menu. 
 
 **Be aware, some of the buttons and commands will CRASH YOUR GAME!**
 
-
-
 ## Known Cheat Codes
-Type the letters by keyboards or push the controller buttons
-| Name  | Keyboard & Mouse | Controller & Gamepad | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| DevModeOn  | `devmodeon` | `xaxaxaybaxybaxxaxaxa` | Enables the developer mode |
+Type the letters by keyboards
+| Name  | Keyboard Input | Description |
+| ------------- | ------------- | ------------- |
+| DevModeOn  | `devmodeon` | Enables the developer mode |
 
 
 ![dev menu](https://i.imgur.com/drTCZGk.jpg)
