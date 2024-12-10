@@ -56,4 +56,11 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+
+  <Target Name="CopyToGameDir" AfterTargets="Build">
+    <Message Importance="high" Text="Copying to game directory" />
+    <Copy SourceFiles="$(OutputPath)$(TargetName)$(TargetExt)" DestinationFolder="$(GameDir)\BepInEx\plugins\" ContinueOnError="false" />
+    <Copy SourceFiles="$(OutputPath)$(TargetName).pdb" DestinationFolder="$(GameDir)\BepInEx\plugins\" ContinueOnError="false" />
+    <Message Importance="high" Text="Files copied" />
+  </Target>
 </Project>
