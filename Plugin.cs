@@ -27,7 +27,7 @@ public class Plugin : BaseUnityPlugin
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
         Log = Logger;
 
-        EnableDevModeOnStart = Config.Bind("General", "EnableDevModeOnStart", false,
+        EnableDevModeOnStart = Config.Bind("General", "EnableDevModeOnStart", true,
             "Whether the game will start with developer mode enabled as default");
 
         EnableCheatCodes = Config.Bind("General", "EnableCheatCodes", true,
