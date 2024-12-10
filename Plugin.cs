@@ -48,11 +48,7 @@ public class Plugin : BaseUnityPlugin
         if (EnableCheatCodes.Value)
         {
             Log.LogDebug("Enable cheat codes");
-            Settings<DebugManagerSettings>.Asset.cheatCodesEnabled.Clear();
-            foreach (var value in Enum.GetValues(typeof(TargetPlatform)).Cast<TargetPlatform>())
-            {
-                Settings<DebugManagerSettings>.Asset.cheatCodesEnabled[value] = true;
-            }
+            Settings<DebugManagerSettings>.Asset.cheatCodesDebug = true;
         }
     }
 }
