@@ -13,7 +13,7 @@
       https://nuget.bepinex.dev/v3/index.json
     </RestoreAdditionalProjectSources>
     <RootNamespace>EnableDev</RootNamespace>
-    <GameDir>S:\SteamLibrary\steamapps\common\Potion Craft</GameDir>
+    <GameDir>U:\SteamLibrary\steamapps\common\Potion Craft</GameDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +27,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Reference Include="PotionCraft.AchievementsSystem">
+      <HintPath>$(GameDir)\Potion Craft_Data\Managed\PotionCraft.AchievementsSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PotionCraft.Core">
       <HintPath>$(GameDir)\Potion Craft_Data\Managed\PotionCraft.Core.dll</HintPath>
       <Private>False</Private>

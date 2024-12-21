@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
+using PotionCraft.Assemblies.AchievementsSystem;
 using PotionCraft.ManagersSystem.Application;
 using PotionCraft.ManagersSystem.Debug;
 using PotionCraft.SceneLoader;
@@ -21,6 +24,7 @@ public class Plugin : BaseUnityPlugin
 
     private static ConfigEntry<bool> EnableDevModeOnStart;
     private static ConfigEntry<bool> EnableCheatCodes;
+    internal static ConfigEntry<bool> EnableAchievementsOnDevMode { get; private set; }
 
     private void Awake()
     {
@@ -32,6 +36,9 @@ public class Plugin : BaseUnityPlugin
 
         EnableCheatCodes = Config.Bind("General", "EnableCheatCodes", true,
             "Enable cheat codes?");
+        
+        EnableAchievementsOnDevMode = Config.Bind("General", "EnableAchievementsOnDevMode", true,
+            "Enable achievements when developer mode is active?");
 
         _harmony.PatchAll();
     }
@@ -63,6 +70,28 @@ public static class LoadingQueuePatch
         if (name == "InitializeDeveloperMode")
         {
             Plugin.ModifyBuildConfig();
+        }
+    }
+}
+
+[HarmonyPatch]
+public static class AchievementsManagerPatch
+{
+    [HarmonyTargetMethods]
+    public static IEnumerable<MethodBase> Methods()
+    {
+        return typeof(AchievementsManager)
+            .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
+            .Where(m => m.Name == nameof(AchievementsManager.UnlockAchievement))
+            .Append(AccessTools.Method(typeof(AchievementsManager), nameof(AchievementsManager.RetrounlockAchievement)));
+    }
+    
+    [HarmonyPrefix]
+    public static void Patch(ref bool isDeveloperMode)
+    {
+        if (Plugin.EnableAchievementsOnDevMode.Value)
+        {
+            isDeveloperMode = false;
         }
     }
 }
